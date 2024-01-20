@@ -1,24 +1,35 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter
+from fastapi import status
 from sqlalchemy import text
 
-from app.constants import ServiceStatus
+from app.constants import ServiceStatusEnum
 from app.config.logger import logger
 from app.config.postgres import SessionLocal
+from app.schemas.healthcheck import LiveResponseSchema, ReadyResponseSchema
 
 router = APIRouter()
 
-@router.get("/ready")
-def check_app_health() -> None:
+@router.get(
+    "/live",
+    description="API to check if the service is live",
+    response_model=LiveResponseSchema,
+    status_code = status.HTTP_200_OK
+)
+def check_app_is_live() -> LiveResponseSchema:
     response = {
-        "status": ServiceStatus.UP
+        "status": ServiceStatusEnum.UP
     }
-
     return response
 
-@router.get("/live")
-def check_app_health() -> None:
+@router.get(
+    "/ready",
+    description="API to check if the service is up and all the required resources can be accessed",
+    response_model=ReadyResponseSchema,
+    status_code = status.HTTP_200_OK
+)
+def check_app_health() -> ReadyResponseSchema:
     can_access_db =  is_db_connected()
-    status = ServiceStatus.UP if can_access_db else ServiceStatus.DOWN
+    status = ServiceStatusEnum.UP if can_access_db else ServiceStatusEnum.DOWN
 
     response = {
         "status": status,
@@ -33,6 +44,7 @@ def is_db_connected() -> bool:
     """
     Function to check for database connectivity during app start.
     """
+
     try:
         db: Session = SessionLocal()
         db.execute(text("SELECT 1"))
