@@ -8,7 +8,7 @@ from app.config.settings import app_settings
 
 allowed_origins = app_settings.allowed_origins.split(",")
 
-app = FastAPI(prefix="/api")
+app = FastAPI(root_path="/api")
 app.add_middleware(HTTPSRedirectMiddleware)
 if allowed_origins:
     app.add_middleware(

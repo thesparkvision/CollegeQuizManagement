@@ -17,15 +17,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base-url}}/api/v1/students/",
+							"raw": "{{base-url}}/v1/students",
 							"host": [
 								"{{base-url}}"
 							],
 							"path": [
-								"api",
 								"v1",
-								"students",
-								""
+								"students"
 							]
 						}
 					},
@@ -139,13 +137,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base-url}}/api/health/live",
+							"raw": "{{base-url}}/api/healthz/live",
 							"host": [
 								"{{base-url}}"
 							],
 							"path": [
 								"api",
-								"health",
+								"healthz",
 								"live"
 							]
 						}
@@ -158,13 +156,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base-url}}/api/health/ready",
+							"raw": "{{base-url}}/api/healthz/ready",
 							"host": [
 								"{{base-url}}"
 							],
 							"path": [
 								"api",
-								"health",
+								"healthz",
 								"ready"
 							]
 						}
