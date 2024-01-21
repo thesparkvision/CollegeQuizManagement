@@ -6,6 +6,6 @@ load_dotenv(find_dotenv(".env"))
 
 class Settings(BaseSettings):
     db_uri: str = ""
-
+    allowed_origins: str = ""
 
 app_settings = Settings()

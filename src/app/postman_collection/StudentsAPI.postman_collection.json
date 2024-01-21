@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "5e4ac260-a771-430d-984e-d62160fe2fc8",
+		"name": "StudentsAPI",
+		"description": "This is a simple Students API Collection.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15620588",
+		"_collection_link": "https://winter-firefly-143028.postman.co/workspace/New-Team-Workspace~1505d147-e197-4411-ad31-fbc19d98a307/collection/15620588-5e4ac260-a771-430d-984e-d62160fe2fc8?action=share&source=collection_link&creator=15620588"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Get All Students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/students/",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/students/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student Record",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/v1/students/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"email\": \"string\",\r\n  \"doj\": \"2024-01-21\",\r\n  \"dob\": \"2024-01-21\",\r\n  \"address\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/students",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"doj\": \"2024-01-21\",\r\n  \"dob\": \"2024-01-21\",\r\n  \"address\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base-url}}/api/v1/students/1",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Healthcheck",
+			"item": [
+				{
+					"name": "Live API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/health/live",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"live"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ready API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/api/health/ready",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"api",
+								"health",
+								"ready"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
