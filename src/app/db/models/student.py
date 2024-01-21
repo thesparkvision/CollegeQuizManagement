@@ -1,6 +1,12 @@
-from sqlalchemy import Column, Column, String, Date, Integer
+from sqlalchemy import Column, Column, String, Date, Integer, DateTime, func
 
-from models.base import BaseClass
+from app.db.models.base import Base
+
+class BaseClass(Base):
+    __abstract__ = True
+
+    created_at = Column(DateTime, default=func.now())
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
 
 class Student(BaseClass):
     __tablename__ = "student"

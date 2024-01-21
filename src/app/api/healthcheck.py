@@ -7,7 +7,7 @@ from app.config.logger import logger
 from app.config.postgres import SessionLocal
 from app.schemas.healthcheck import LiveResponseSchema, ReadyResponseSchema
 
-router = APIRouter()
+router = APIRouter(prefix="/healthz")
 
 @router.get(
     "/live",

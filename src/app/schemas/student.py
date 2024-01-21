@@ -16,19 +16,18 @@ class ExtendedStudent(Student):
 
 class UpdateStudent(BaseModel):
     name: str | None
-    email: str | None
     doj: date | None
     dob: date | None
     address: str | None
 
-    @model_validator(mode='after')
-    def check_update_possibility(self):
-        return check_at_least_one_field_provided(self.values)
+    # @model_validator(mode='after')
+    # def check_update_possibility(self):
+    #     return check_at_least_one_field_provided(self.values)
 
 class StudentSchema(BaseModel):
-    student: ExtendedStudent = None
-    error: ErrorSchema | None = None
+    data: ExtendedStudent
+    error: ErrorSchema | None
 
 class StudentsSchema(BaseModel):
-    students: List[ExtendedStudent] = []
-    error: ErrorSchema | None = None
+    data: List[ExtendedStudent]
+    error: ErrorSchema | None
